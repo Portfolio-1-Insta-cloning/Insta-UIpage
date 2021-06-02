@@ -131,15 +131,14 @@ const LoginForm = (props) => {
             console.log('Login Function success', res.data)
             localStorage.setItem("token", res.data.token);
             setAuthenticatedSuccess()
-            
             loginFunc(res.data)
             // getUser(res.data)
-            history.push("/welcome?id="+res.data.id);
+            history.push("/welcome");
         })
         .catch((err) => {
             console.log('login error:', err);
-            setLoginError(err.response.data.message)
-            console.log('Error Message =', err.response.data.message)
+            // setLoginError(err.response.data.message)
+            // console.log('Error Message =', err.response.data.message)
         })
     }
 
