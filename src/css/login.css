@@ -1,4 +1,4 @@
-.signup_wrapperdiv {
+.login_Wrapper_div {
     margin-top: 0;
     width: 100%;
     background-color: #3399ff;
@@ -19,7 +19,7 @@
     align-items: baseline;
 }
 
-.signup_title {
+.login_title {
     margin-right: auto;
     font-family: Source Sans Pro, sans-serif;
     font-size: 3rem;
@@ -29,66 +29,54 @@
     margin-bottom: 20px;
 }
 
-.form_ele {
+.login_form_ele {
     width: 60%;
     max-width: 500px;
-    margin: 25px auto;
     display: flex;
     flex-direction: column;
+    border: 2px solid #ffffff;
+    padding: 50px 0;
     justify-content: center;
     align-items: center;
-    border: 2px solid white;
-    padding: 50px 25px 50px 25px;
 }
 
 .error_msg {
     font-family: Source Sans Pro, sans-serif;
     color: #ff0000;
     font-size: 1.5rem;
-    margin-bottom: 10px;  
+    margin-bottom: 10px;
 }
 
-.formGroup_wrapper {
-    display:flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-.signup_formgroup_div {
+.login_formGroup_div {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.label_ele {
-    margin-right: 10px;
+.login_label_ele {
+    margin-right: auto;
     margin-bottom: 10px;
     font-size: 1.8rem;
     font-weight: 600;
     font-family: Source Sans Pro, sans-serif;
 }
 
-.signup_required {
+.login_required {
     color: #ff3300;
     font-weight: 500;
     margin-left: 5px;
 }
 
-.signup_input_ele {
+.login_input_ele {
     margin: 0;
     height: auto;
     border: none;
     border-radius: 2px;
     padding: 6px 0 6px 8px;
     font-size: 1.8rem;
-    margin: 0 0 16px 10px;
+    margin-bottom: 16px;
     background-color: #ffffff;
-}
-
-.button_wrapper {
-    display: flex;
-    justify-content: center;
-}
+};
 
 .submitbutton {
     border: 1px solid #ffffff;
@@ -106,11 +94,4 @@
 .submitbutton:disabled{
     opacity: 0.5;
     cursor: not-allowed;
-}
-
-.validation_error {
-    color: #9bf1ff;
-    margin: 0 0 10px 0;
-    font-size: 1.6rem;
-    text-align: center;
 }
