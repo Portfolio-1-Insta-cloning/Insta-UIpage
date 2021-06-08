@@ -1,19 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
+import "../css/home.css";
+import background from "../images/home_background_waterfall.jpg";
+import Header from './Header';
+import Footer from './Footer';
 
-const HomeWrapperDiv = styled.div`
-    width: 100%;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-`;
 const Home = () => {
     return (
-        <HomeWrapperDiv>
-            <h1>WELCOME TO OUR HOME PAGE</h1>
-        </HomeWrapperDiv>
+        <div>
+            <Header
+                // isAuthenticated={isAuthenticated}
+            // handleLogout={ handleLogout }
+            />
+            <div className="hero">
+                <h1>WELCOME TO OUR HOME PAGE</h1>
+            </div>
+            <Footer />
+        </div>
     )
 }
 

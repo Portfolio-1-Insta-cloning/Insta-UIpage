@@ -1,6 +1,6 @@
 .header_wrapper {
     width: 100%;
-    background-color: #1aa3ff;
+    background-color: #A2C230;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,9 +41,9 @@
     color: #ffffff;
 }
 .navLink_item:hover {
-    font-weight: 600;
-    color: #99d6ff;
+    font-weight: 400;
+    color: #4B6349;
 }
 .navLink_item:active {
-    color: #b3e0ff;
+    color: #4B6349;
 }

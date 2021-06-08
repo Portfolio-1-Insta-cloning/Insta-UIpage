@@ -1,13 +1,23 @@
 .login_Wrapper_div {
     margin-top: 0;
     width: 100%;
-    background-color: #3399ff;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    color: #ffffff;
+    color: #000;
     height: auto;
+}
+
+.login_header {
+    display: flex;
+    justify-content: flex-end;
+    color: #30A08A;
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: Source Sans Pro, sans-serif;
+    padding-right: 20px;
 }
 
 .form_header_div {
@@ -22,11 +32,17 @@
 .login_title {
     margin-right: auto;
     font-family: Source Sans Pro, sans-serif;
-    font-size: 3rem;
-    color: #ffffff;
-    font-weight: 600;
+    font-size: 1.5rem;
+    color: #30A08A;
+    /* font-weight: 200; */
     line-height: 1.65;
     margin-bottom: 20px;
+}
+
+.signup_link {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #30A08A;
 }
 
 .login_form_ele {
@@ -34,7 +50,8 @@
     max-width: 500px;
     display: flex;
     flex-direction: column;
-    border: 2px solid #ffffff;
+    border: 2px solid #30A08A;
+    border-radius: 5px;
     padding: 50px 0;
     justify-content: center;
     align-items: center;
@@ -59,6 +76,7 @@
     font-size: 1.8rem;
     font-weight: 600;
     font-family: Source Sans Pro, sans-serif;
+    color: #30A08A;
 }
 
 .login_required {
@@ -70,28 +88,27 @@
 .login_input_ele {
     margin: 0;
     height: auto;
-    border: none;
-    border-radius: 2px;
+    border: 1px solid #30A08A;
+    border-radius: 3px;
     padding: 6px 0 6px 8px;
     font-size: 1.8rem;
     margin-bottom: 16px;
     background-color: #ffffff;
 };
 
-.submitbutton {
+.login_submitbutton {
     border: 1px solid #ffffff;
     background-color: transparent;
     padding: 8px 30px;
     font-size: 1.8rem;
     color: #ffffff;
-    border-radius: 2px;
+    border-radius: 5px;
     margin-top: 10px;
 }
-.submitbutton:hover {
-    border-color: #9bf1ff;
-    color: #9bf1ff;
+.login_submitbutton:hover {
+    border-color: #30A08A;
 }
-.submitbutton:disabled{
+.login_submitbutton:disabled{
     opacity: 0.5;
     cursor: not-allowed;
-}
+} 

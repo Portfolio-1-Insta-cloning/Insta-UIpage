@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import axios from "axios";
 // import * as yup from "yup";
 import "../css/signup.css";
@@ -83,9 +83,12 @@ const SignUpForm = (props) => {
 
     return (
         <>
+            <div>
+                <NavLink className = "signup_header" to = '/'>Home</NavLink>
+            </div>
         <div className = "signup_wrapperdiv">
             <div className = "form_header_div">
-                <h1 className = "signup_title">Create an Account</h1>
+                <p className = "signup_title">If you already have an account click here to <NavLink to = "login" className = "login_link">Login</NavLink></p>
             </div>
             <form className = "form_ele" onSubmit={submitHandler}>
             <span className = "error_msg">{uniqeUserName}</span>
@@ -97,7 +100,7 @@ const SignUpForm = (props) => {
                         name="firstname"
                         id="firstname"
                         value = {signupForm.firstname}
-                        placeholder = "First Name"
+                        placeholder="First Name"
                         required
                         onChange={inputchange} />
                         {/* {errorState.firstname.length > 0 ? <p className = "validation_error"> {errorState.firstname }</p> : null } */}
@@ -171,8 +174,8 @@ const SignUpForm = (props) => {
                         onChange={inputchange} />
                 </div>
             </div>
-            <div className = "button_wrapper">
-                <button className = "submitbutton" type="submit">Signup</button>
+            <div className = "signup_button_wrapper">
+                <button className = "signup_submitbutton" type="submit">Signup</button>
             </div>
         </form>
     </div>
