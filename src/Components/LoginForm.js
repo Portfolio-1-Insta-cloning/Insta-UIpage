@@ -6,7 +6,7 @@ import "../css/login.css";
 const LoginForm = (props) => {
 
     const history = useHistory();
-    const {setAuthenticatedSuccess, loginFunc, getUser} = props;
+    const {setAuthenticatedSuccess, loginFunc} = props;
 
     const [credentials, setCredentials] = useState({
         username: "",
@@ -29,7 +29,6 @@ const LoginForm = (props) => {
                 localStorage.setItem("token", res.data.token);
                 setAuthenticatedSuccess()
                 loginFunc(res.data)
-                // getUser(res.data)
                 history.push("/welcome");
             })
             .catch((err) => {
@@ -67,8 +66,10 @@ const LoginForm = (props) => {
                             id="password"
                             value = {credentials.password}
                             onChange={changeHandler} />
-                </div>
-                <button className = "login_submitbutton" type = "submit">Login</button>
+                    </div>
+                    <div className = "login_button_wrapper">
+                    <button className = "login_submitbutton" type = "submit">Login</button>
+                    </div>
             </form>
         </div >
     </>

@@ -5,7 +5,6 @@ import { Route, Switch} from 'react-router-dom';
 import './App.css';
 import SignUpForm from "./Components/SignUpForm";
 import LoginForm from "./Components/LoginForm";
-import Footer from "./Components/Footer";
 import Home from "./Components/Home";
 import Profile from './Components/Profile';
 import Welcome from "./Components/Welcome";
@@ -49,6 +48,9 @@ const App = () => {
 
   // Login State:
   const [loginUser, setLoginUser] = useState([{
+    id: "",
+    firstname: "",
+    lastname: "",
     username: "",
     password: ""
   }]);
@@ -87,7 +89,9 @@ const App = () => {
             handleLogout={handleLogout}/>
         </PrivateRoute>
         <Route>
-          <Profile/>
+          <Profile
+            loginUser={loginUser}
+            handleLogout={ handleLogout }/>
         </Route>
       </Switch>
     </div>
