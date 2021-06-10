@@ -5,11 +5,10 @@ import { Route, Switch} from 'react-router-dom';
 import './App.css';
 import SignUpForm from "./Components/SignUpForm";
 import LoginForm from "./Components/LoginForm";
-import Header from "./Components/Header";
-import Footer from "./Components/Footer";
-import Welcome from "./Components/Welcome";
 import Home from "./Components/Home";
 import Profile from './Components/Profile';
+import Welcome from "./Components/Welcome";
+import { PrivateRoute } from "./Components/PrivateRoute";
 
 const App = () => {
 // Current user state for signup:
@@ -36,8 +35,6 @@ const App = () => {
   }
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
-  //log.debug=false
-  // Auth function
   const setAuthenticatedSuccess = () => {
     console.log("login is successful.. setting true")
     setIsAuthenticated(true)
@@ -45,15 +42,22 @@ const App = () => {
 
   // Logout function:
   const handleLogout = () => {
-    setIsAuthenticated(false)
+    setIsAuthenticated(false);
+    localStorage.removeItem("token");
   }
+
   // Login State:
   const [loginUser, setLoginUser] = useState([{
+    id: "",
+    firstname: "",
+    lastname: "",
     username: "",
     password: ""
   }]);
   const loginFunc = (user) => {
-    const exsistingUser = {...loginUser,
+    const exsistingUser = {
+      ...loginUser,
+      id: user.id,
       firstname: user.firstname,
       lastname: user.lastname,
       username: user.username,
@@ -61,12 +65,10 @@ const App = () => {
     }
     setLoginUser(exsistingUser);
   }
-
+  console.log("LOGIN USER =", loginUser);
   return (
     <div className = "wrapperDiv">
-      <Header
-        isAuthenticated={isAuthenticated}
-        handleLogout={ handleLogout }/>
+      
       {/* Routes */}
       <Switch>
         <Route exact path="/">
@@ -82,17 +84,16 @@ const App = () => {
             // getUser = {getUser}
           />
         </Route>
-        <Route path='/welcome'>
-          <Welcome
-            currentUser={currentUser}
+        <PrivateRoute path='/welcome'>
+          <Welcome loginUser={loginUser}
+            handleLogout={handleLogout}/>
+        </PrivateRoute>
+        <Route>
+          <Profile
             loginUser={loginUser}
-            isAuthenticated={ isAuthenticated}/>
-        </Route>
-        <Route path = '/profile'>
-          <Profile/>
+            handleLogout={ handleLogout }/>
         </Route>
       </Switch>
-      <Footer/>
     </div>
   );
 }

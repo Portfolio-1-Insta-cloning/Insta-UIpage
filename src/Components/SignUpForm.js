@@ -1,16 +1,8 @@
 import React, { useState } from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import axios from "axios";
-import * as yup from "yup";
+// import * as yup from "yup";
 import "../css/signup.css";
-import styled from 'styled-components';
-
-const Errors = styled.p`
-    color: #9bf1ff;
-    margin: 0 0 10px 0;
-    font-size: 1.6rem;
-    text-align: center;
-`;
 
 const SignUpForm = (props) => {
     
@@ -31,25 +23,25 @@ const SignUpForm = (props) => {
     const [uniqeUserName, setUniqueUserName] = useState()
     
     // Error State for validation:
-    const [errorState, setErrorState] = useState([{
-        firstname: "",
-        lastname: "",
-        email: "",
-        phonenumber: "",
-        username: "",
-        password: "",
-        confirmpassword: ""
-    }]);
+    // const [errorState, setErrorState] = useState([{
+    //     firstname: "",
+    //     lastname: "",
+    //     email: "",
+    //     phonenumber: "",
+    //     username: "",
+    //     password: "",
+    //     confirmpassword: ""
+    // }]);
     
-    const formSchema = yup.object().shape({
-        firstname: yup.string().required("First Name is Required"),
-        lastname: yup.string().required("Last Name is Required"),
-        email: yup.string().email().required("Email is Required"),
-        phonenumber: yup.string().matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/, 'Phone number is not valid'),
-        username: yup.string().required("Username is a Mandatory field"),
-        password: yup.string().required("password is required").min(8, "Password must be at least 8 character").matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/, 'Password must contain uppercase and lowercase letter, a number, and may contain special characters.'),
-        confirmpassword: yup.string().required("Your password should match")
-    })
+    // const formSchema = yup.object().shape({
+    //     firstname: yup.string().required("First Name is Required"),
+    //     lastname: yup.string().required("Last Name is Required"),
+    //     email: yup.string().email().required("Email is Required"),
+    //     phonenumber: yup.string().matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/, 'Phone number is not valid'),
+    //     username: yup.string().required("Username is a Mandatory field"),
+    //     password: yup.string().required("password is required").min(8, "Password must be at least 8 character").matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/, 'Password must contain uppercase and lowercase letter, a number, and may contain special characters.'),
+    //     confirmpassword: yup.string().required("Your password should match")
+    // })
 
     // const validateForm = (e) => {
     //     yup
@@ -67,7 +59,8 @@ const SignUpForm = (props) => {
     
     const inputchange = (e) => {
         e.persist();
-        const newUser = setSignupForm({ ...signupForm, [e.target.name]: e.target.value });
+        // const newUser =
+            setSignupForm({ ...signupForm, [e.target.name]: e.target.value });
         // validateForm(e)
         // setSignupForm(newUser);
     };
@@ -90,41 +83,44 @@ const SignUpForm = (props) => {
 
     return (
         <>
+            <div>
+                <NavLink className = "signup_header" to = '/'>Home</NavLink>
+            </div>
         <div className = "signup_wrapperdiv">
             <div className = "form_header_div">
-                <h1 className = "signup_title">Create an Account</h1>
+                <p className = "signup_title">If you already have an account click here to <NavLink to = "login" className = "login_link">Login</NavLink></p>
             </div>
-                <form className = "form_ele" onSubmit={submitHandler}>
-                <span className = "error_msg">{uniqeUserName}</span>
-                <div className = "formGroup_wrapper">
-                    <div className = "formGroup_div">
-                        <label className = "label_ele" htmlFor="firstname">First Name
-                        <span className = "required">*</span></label>
-                        <input className = "input_ele" type="text"
-                            name="firstname"
-                            id="firstname"
-                            value = {signupForm.firstname}
-                            placeholder = "First Name"
-                            required
-                            onChange={inputchange} />
-                            {/* {errorState.firstname.length > 0 ? <p className = "validation_error"> {errorState.firstname }</p> : null } */}
-                    </div>
-                <div className = "formGroup_div">
-                    <label className = "label_ele" htmlFor="lastname">Last Name
-                    <span className = "required">*</span></label>
-                    <input className = "input_ele" type="text"
-                        name="lastname"
-                        id="lastname"
-                        value={signupForm.lastname}
-                        placeholder = "Last Name"
+            <form className = "form_ele" onSubmit={submitHandler}>
+            <span className = "error_msg">{uniqeUserName}</span>
+            <div className = "formGroup_wrapper">
+                <div className = "signup_formgroup_div">
+                    <label className = "label_ele" htmlFor="firstname">First Name
+                    <span className = "signup_required">*</span></label>
+                    <input className = "signup_input_ele" type="text"
+                        name="firstname"
+                        id="firstname"
+                        value = {signupForm.firstname}
+                        placeholder="First Name"
                         required
                         onChange={inputchange} />
-                        {/* {errorState.lastname.length > 0 ? <p className = "validation_error"> {errorState.lastname }</p> : null } */}
+                        {/* {errorState.firstname.length > 0 ? <p className = "validation_error"> {errorState.firstname }</p> : null } */}
                 </div>
-                <div className = "formGroup_div">
+                <div className = "signup_formgroup_div">
+                <label className = "label_ele" htmlFor="lastname">Last Name
+                <span className = "signup_required">*</span></label>
+                <input className = "signup_input_ele" type="text"
+                    name="lastname"
+                    id="lastname"
+                    value={signupForm.lastname}
+                    placeholder = "Last Name"
+                    required
+                    onChange={inputchange} />
+                    {/* {errorState.lastname.length > 0 ? <p className = "validation_error"> {errorState.lastname }</p> : null } */}
+                </div>
+                <div className = "signup_formgroup_div">
                     <label className = "label_ele" htmlFor="email">E-mail
-                    <span className = "required">*</span></label>
-                    <input className = "input_ele" type="email"
+                    <span className = "signup_required">*</span></label>
+                    <input className = "signup_input_ele" type="email"
                         name="email"
                         id="email"
                         value={signupForm.email}
@@ -133,10 +129,10 @@ const SignUpForm = (props) => {
                         onChange={inputchange} />
                         {/* {errorState.email.length > 0 ? <p className = "validation_error"> {errorState.email}</p> : null } */}    
                 </div>
-                <div className = "formGroup_div">
+                <div className = "signup_formgroup_div">
                     <label className = "label_ele" htmlFor="phone">Phone Number
-                    <span className = "required">*</span></label>
-                    <input className = "input_ele" type="tel"
+                    <span className = "signup_required">*</span></label>
+                    <input className = "signup_input_ele" type="tel"
                         name="phone"
                         id="phone"
                         value={signupForm.phonenumber}
@@ -144,10 +140,10 @@ const SignUpForm = (props) => {
                         required
                         onChange={inputchange} />
                 </div>
-                <div className = "formGroup_div">
+                <div className = "signup_formgroup_div">
                     <label className = "label_ele" htmlFor="username">Username
-                    <span className = "required">*</span></label>
-                    <input className = "input_ele" type="text"
+                    <span className = "signup_required">*</span></label>
+                    <input className = "signup_input_ele" type="text"
                         name="username"
                         id="username"
                         value={signupForm.username}
@@ -155,10 +151,10 @@ const SignUpForm = (props) => {
                         required
                         onChange={inputchange} />
                 </div>
-                <div className = "formGroup_div">
+                <div className = "signup_formgroup_div">
                     <label className = "label_ele" htmlFor="password">Password
-                    <span className = "required">*</span></label>
-                    <input className = "input_ele" type="password"
+                    <span className = "signup_required">*</span></label>
+                    <input className = "signup_input_ele" type="password"
                         name="password"
                         id="password"
                         value={signupForm.password}
@@ -166,10 +162,10 @@ const SignUpForm = (props) => {
                         required
                         onChange={inputchange} />
                 </div>
-                <div className = "formGroup_div">
+                <div className = "signup_formgroup_div">
                     <label className = "label_ele" htmlFor="confirmpassword">Confirm Password
-                    <span className = "required">*</span></label>
-                    <input className = "input_ele" type="password"
+                    <span className = "signup_required">*</span></label>
+                    <input className = "signup_input_ele" type="password"
                         name="confirmpassword"
                         id="confirmpassword"
                         value={signupForm.confirmpassword}
@@ -177,13 +173,13 @@ const SignUpForm = (props) => {
                         required
                         onChange={inputchange} />
                 </div>
-                </div>
-                <div className = "button_wrapper">
-                    <button className = "submitbutton" type="submit">Signup</button>
-                </div>
-            </form>
             </div>
-        </>
+            <div className = "signup_button_wrapper">
+                <button className = "signup_submitbutton" type="submit">Signup</button>
+            </div>
+        </form>
+    </div>
+    </>
     )
 }
 

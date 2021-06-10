@@ -1,0 +1,22 @@
+.profile_navlink_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; 
+}
+
+.profile_navlink_item {
+    color: #30A08A;
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: Source Sans Pro, sans-serif;
+    padding-right: 20px;
+}
+
+.profile_title {
+    display: flex;
+    justify-content: center;
+    font-family: Source Sans Pro, sans-serif;
+    font-size: 2rem;
+    color: #30A08A;
+    margin-bottom: 20px;
+}
