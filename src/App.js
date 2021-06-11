@@ -48,9 +48,6 @@ const App = () => {
 
   // Login State:
   const [loginUser, setLoginUser] = useState([{
-    id: "",
-    firstname: "",
-    lastname: "",
     username: "",
     password: ""
   }]);
@@ -85,14 +82,15 @@ const App = () => {
           />
         </Route>
         <PrivateRoute path='/welcome'>
-          <Welcome loginUser={loginUser}
+          <Welcome
+            loginUser={loginUser}
             handleLogout={handleLogout}/>
         </PrivateRoute>
-        <Route>
+        <PrivateRoute>
           <Profile
             loginUser={loginUser}
             handleLogout={ handleLogout }/>
-        </Route>
+        </PrivateRoute>
       </Switch>
     </div>
   );
