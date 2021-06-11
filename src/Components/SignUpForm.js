@@ -106,15 +106,15 @@ const SignUpForm = (props) => {
                         {/* {errorState.firstname.length > 0 ? <p className = "validation_error"> {errorState.firstname }</p> : null } */}
                 </div>
                 <div className = "signup_formgroup_div">
-                <label className = "label_ele" htmlFor="lastname">Last Name
-                <span className = "signup_required">*</span></label>
-                <input className = "signup_input_ele" type="text"
-                    name="lastname"
-                    id="lastname"
-                    value={signupForm.lastname}
-                    placeholder = "Last Name"
-                    required
-                    onChange={inputchange} />
+                    <label className = "label_ele" htmlFor="lastname">Last Name
+                    <span className = "signup_required">*</span></label>
+                    <input className = "signup_input_ele" type="text"
+                        name="lastname"
+                        id="lastname"
+                        value={signupForm.lastname}
+                        placeholder = "Last Name"
+                        required
+                        onChange={inputchange} />
                     {/* {errorState.lastname.length > 0 ? <p className = "validation_error"> {errorState.lastname }</p> : null } */}
                 </div>
                 <div className = "signup_formgroup_div">

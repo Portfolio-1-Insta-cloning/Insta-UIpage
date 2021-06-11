@@ -1,13 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink} from 'react-router-dom';
 import { axiosWithAuth } from './axiosWithAuth';
 import "../css/profile.css";
-import axios from 'axios';
 
 const Profile = (props) => {
     const { loginUser, handleLogout } = props
-
-    // const params = useParams();
 
     // States to edit user details:
     const [editing, setEditing] = useState(false);
@@ -22,8 +19,8 @@ const Profile = (props) => {
         axiosWithAuth()
             .put(`http://localhost:5000/api/users/${loginUser.id}`, { firstname: editProfile.firstname, lastname: editProfile.lastname })
             .then((res) => {
-                console.log("Edit API res = ", res);
-                setEditProfile(res);
+                console.log("Edit API res = ", res.data);
+                setEditProfile(res.data);
             })
             .catch((err) => {
                 console.log("Profile Error =",err.response.data.message);
@@ -31,23 +28,9 @@ const Profile = (props) => {
     };
 
     const editChangeHandler = (e) => {
-        // e.persist();
+        e.persist();
         setEditProfile({ ...editProfile, [e.target.name]: e.target.value });
-        console.log("Edit Profile =", editProfile);
     }
-
-    // useEffect(() => {
-    //     getUserInfo(props)
-    // });
-
-    // const getUserInfo = (props) => {
-    //     console.log("Get user info =", props);
-    //     const {id} = props.match.params;
-    //     axios
-    //         .get(`http://localhost:5000/api/users/${id}`)
-    //         .then(res => { console.log(res) })
-    //         .catch(err => { console.error(err) })
-    // }
 
     return (
         <div>
@@ -55,32 +38,39 @@ const Profile = (props) => {
                 <NavLink to = "/" className = "profile_navlink_item">Home</NavLink>
                 <NavLink to = "/" onClick={handleLogout} className = "profile_navlink_item">Logout</NavLink>
             </div>
-
-            <p className = "profile_title"> User Profile</p>
-            <p>First Name: { editProfile.firstname }</p>
-            <p>Last Name: {editProfile.lastname}</p>
-            <button type="submit" onClick = {() => setEditing(true)}>Edit</button>
+                <p className = "profile_title"> User Profile</p>
+            <div className = "profile_div">
+                <span className = "profile_field"><p className = "profile_feild_label">First Name:</p> <p className = "profile_feild_input">{ editProfile.firstname }</p></span>
+                <span className = "profile_field"><p className = "profile_feild_label">Last Name: </p> <p className = "profile_feild_input">{editProfile.lastname} </p></span>
+                <div className = "profile_button_wrapper">
+                    <button type="submit" className = "profile_submitbutton" onClick = {() => setEditing(true)}>Edit</button>
+                </div>
+            </div>
             {editing && (
-                <form onSubmit={editSubmitHandler}>
-                    <div>
-                        <label>First Name</label>
-                        <input
-                            name = "firstname"
-                            onChange={editChangeHandler}
-                        value={ editProfile.firstname }
-                        />
-                    </div>
-                    <div>
-                        <label>Last Name</label>
-                        <input
-                            name = "lastname"
-                            onChange={editChangeHandler}
-                        value={ editProfile.lastname }
-                        />
-                    </div>
-                    <button type="submit">Save</button>
-                    <button onClick={() => setEditing(false) }>Cancel</button>
-                </form>
+            <form className = "profile_form" onSubmit={editSubmitHandler}>
+                <div className = "profile_formgroup_div">
+                    <label className = "profile_label_ele">First Name</label>
+                    <input
+                        className = "profile_input_ele"
+                        name = "firstname"
+                        onChange={editChangeHandler}
+                    value={ editProfile.firstname }
+                    />
+                </div>
+                <div>
+                    <label className = "profile_label_ele">Last Name</label>
+                    <input
+                        className = "profile_input_ele"
+                        name = "lastname"
+                        onChange={editChangeHandler}
+                    value={ editProfile.lastname }
+                    />
+                </div>
+                <div className = "profile_button_wrapper">
+                    <button  className = "profile_submitbutton">Save</button>
+                    <button className = "profile_submitbutton" onClick = {() => setEditing(false)}>Cancel</button>
+                </div>
+            </form>
             )}
         </div>
     )

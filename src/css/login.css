@@ -112,6 +112,7 @@
 }
 .login_submitbutton:hover {
     border-color: #30A08A;
+    cursor: pointer;
 }
 .login_submitbutton:disabled{
     opacity: 0.5;
