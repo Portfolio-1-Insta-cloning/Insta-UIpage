@@ -1,18 +1,4 @@
-.profile_navlink_wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end; 
-}
-
-.profile_navlink_item {
-    color: #30A08A;
-    text-decoration: none;
-    font-size: 2rem;
-    font-family: Source Sans Pro, sans-serif;
-    padding-right: 20px;
-}
-
-.profile_title {
+.edit_profile_title {
     display: flex;
     justify-content: center;
     font-family: Source Sans Pro, sans-serif;
@@ -21,36 +7,7 @@
     margin-bottom: 20px;
 }
 
-.profile_div {
-    width: 60%;
-    margin: auto;
-    border: 1px solid #30A08A;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-}
-
-.profile_field {
-    /* color: #1d5f52; */
-    font-size: 1.5rem;
-    font-family: Source Sans Pro, sans-serif;
-    display: flex;
-    justify-content: center;
-    /* padding: 5px; */
-}
-
-.profile_feild_label {
-    color: #30A08A;
-    margin: 5px;
-}
-
-.profile_feild_input {
-    color: #06352c;
-    margin: 5px;
-    /* border: 0.5px solid #30A08A; */
-}
-
-.profile_form {
+.edit_profile_form {
     width: 60%;
     margin: 20px auto;
     display: flex;
@@ -62,14 +19,14 @@
     border-radius: 5px;
 }
 
-.profile_formgroup_div {
+.edit_profile_formgroup_div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding-top: 20px;
 }
 
-.profile_label_ele {
+.edit_profile_label_ele {
     margin-right: 10px;
     margin-top: 8px;
     font-size: 1.5rem;
@@ -78,7 +35,7 @@
     color: #30A08A;
 }
 
-.profile_input_ele {
+.edit_profile_input_ele {
     margin: 0;
     height: auto;
     border: 1px solid #30A08A;
@@ -89,31 +46,32 @@
     background-color: #ffffff;
 }
 
-.profile_button_wrapper {
+.editprofile_button_wrapper {
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
-.profile_submitbutton {
+.editprofile_submitbutton {
     border: 1px solid #ffffff;
     background-color: #fff;
     padding: 8px 20px;
     font-size: 1.5rem;
     color: #30A08A;
     border-radius: 5px;
-    margin: 10px;
+    margin: 0 10px;
 }
 
-.profile_submitbutton, NavLink {
+.editprofile_submitbutton, NavLink {
     text-decoration: none;
 }
 
-.profile_submitbutton:hover {
+.editprofile_submitbutton:hover {
     border-color: #30A08A;
     cursor: pointer;
 }
 
-.profile_submitbutton:disabled {
+.editprofile_submitbutton:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }

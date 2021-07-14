@@ -10,10 +10,11 @@ const Welcome = (props) => {
   
   return (
       <>
-        <div className = "welcome_navlink_div">
-          <NavLink className="logout_link" to ={`myaccount/${props.loginUser.id}`}>My Account</NavLink>
+        <div className="welcome_navlink_div">
+          <NavLink className="logout_link" to ={`/myaccount/${props.loginUser.id}`}>My Account</NavLink>
           <NavLink className="logout_link" to="/" onClick={handleLogout}>Logout</NavLink>
         </div>
+      
         <div className="welcome_wrapper_div">
           <h3 className = "welcome_msg">Hello, {firstName}!</h3>
         </div>

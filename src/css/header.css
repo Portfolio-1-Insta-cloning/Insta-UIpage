@@ -47,3 +47,23 @@
 .navLink_item:active {
     color: #4B6349;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+.hearder_dropdown_content {
+    display: flex;
+    flex-direction: column;
+}
+
+.header_dropdown_content a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+.dropdown:hover .hearder_dropdown_content a {
+    display: block;
+}

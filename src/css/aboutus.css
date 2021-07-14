@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.aboutus_header_div {
+    background-color: #12adf6;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.aboutus_image_style {
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff;
+    padding-left: 20px; 
+}
+
+.aboutus_header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: Source Sans Pro, sans-serif;
+    padding: 20px;
+}
