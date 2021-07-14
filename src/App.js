@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Switch} from 'react-router-dom';
+import { Route, Switch, useParams} from 'react-router-dom';
 
 // Components
 import './App.css';
@@ -8,6 +8,7 @@ import LoginForm from "./Components/LoginForm";
 import Home from "./Components/Home";
 import Profile from './Components/Profile';
 import Welcome from "./Components/Welcome";
+import AboutUs from "./Components/AboutUs";
 import { PrivateRoute } from "./Components/PrivateRoute";
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
     setCurrentUser(loggedInUser);
   }
 
+  // Authentication:
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const setAuthenticatedSuccess = () => {
     console.log("login is successful.. setting true")
@@ -51,6 +53,8 @@ const App = () => {
     username: "",
     password: ""
   }]);
+
+  
   const loginFunc = (user) => {
     const exsistingUser = {
       ...loginUser,
@@ -62,10 +66,10 @@ const App = () => {
     }
     setLoginUser(exsistingUser);
   }
-  console.log("LOGIN USER =", loginUser);
+  // console.log("LOGIN USER =", loginUser);
+  
   return (
     <div className = "wrapperDiv">
-      
       {/* Routes */}
       <Switch>
         <Route exact path="/">
@@ -78,19 +82,27 @@ const App = () => {
           <LoginForm
             loginFunc = {loginFunc}
             setAuthenticatedSuccess={setAuthenticatedSuccess}
-            // getUser = {getUser}
           />
         </Route>
+        <Route path = '/aboutus'>
+          <AboutUs/>
+        </Route>      
         <PrivateRoute path='/welcome'>
           <Welcome
             loginUser={loginUser}
             handleLogout={handleLogout}/>
         </PrivateRoute>
-        <PrivateRoute>
+        <PrivateRoute path = "/myaccount/:id">
           <Profile
             loginUser={loginUser}
             handleLogout={ handleLogout }/>
         </PrivateRoute>
+        {/* <PrivateRoute path = "/update">
+          <UpdateProfile
+            loginUser = {loginUser}
+            loginFunc = {loginFunc}
+          />
+        </PrivateRoute> */}
       </Switch>
     </div>
   );

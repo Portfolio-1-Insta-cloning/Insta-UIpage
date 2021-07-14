@@ -3,6 +3,7 @@ import { useHistory, NavLink } from 'react-router-dom';
 import axios from "axios";
 // import * as yup from "yup";
 import "../css/signup.css";
+import logo from "../images/futurebot.png"
 
 const SignUpForm = (props) => {
     
@@ -83,7 +84,8 @@ const SignUpForm = (props) => {
 
     return (
         <>
-            <div>
+            <div className = "signup_header_div">
+                <img src = {logo} className = "signup_image_style"/>
                 <NavLink className = "signup_header" to = '/'>Home</NavLink>
             </div>
         <div className = "signup_wrapperdiv">
