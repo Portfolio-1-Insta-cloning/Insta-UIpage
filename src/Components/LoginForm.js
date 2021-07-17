@@ -46,9 +46,7 @@ const LoginForm = (props) => {
             <NavLink className = "login_header" to = '/'>Home</NavLink>
         </div>
         <div className="login_Wrapper_div">
-            <div className = "form_header_div">
-                <p className = "login_title">If you are a new user click here to <NavLink to = "signup" className = "signup_link">Register</NavLink></p>
-            </div>
+            
             <form className = "login_form_ele" onSubmit={submitHandler}>
                 <span className = "error_msg">{loginError}</span>
                 <div className = "login_formGroup_div">
@@ -72,6 +70,9 @@ const LoginForm = (props) => {
                     <div className = "login_button_wrapper">
                     <button className = "login_submitbutton" type = "submit">Login</button>
                     </div>
+            <div className = "form_header_div">
+                <p className = "login_title">Don't you have an account? <NavLink to = "signup" className = "signup_link">Register here</NavLink></p>
+            </div>
             </form>
         </div >
     </>
