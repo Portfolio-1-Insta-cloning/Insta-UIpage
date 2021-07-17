@@ -9,6 +9,7 @@ import Home from "./Components/Home";
 import Profile from './Components/Profile';
 import Welcome from "./Components/Welcome";
 import AboutUs from "./Components/AboutUs";
+import ContactUs from "./Components/ContactUs";
 import { PrivateRoute } from "./Components/PrivateRoute";
 
 const App = () => {
@@ -86,7 +87,10 @@ const App = () => {
         </Route>
         <Route path = '/aboutus'>
           <AboutUs/>
-        </Route>      
+        </Route>  
+        <Route path = '/contactus'> 
+          <ContactUs/>
+          </Route>    
         <PrivateRoute path='/welcome'>
           <Welcome
             loginUser={loginUser}

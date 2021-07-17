@@ -1,5 +1,10 @@
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+
 .footer_div {
-    background-color: #30A08A;
+    background-color: #12adf6;
     width: 100%;
     height: 80px;
     display: flex;
@@ -10,6 +15,6 @@
 
 .footer_P {
     font-family: 'Source Sans Pro', sans-serif;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     color: #ffffff;
 }

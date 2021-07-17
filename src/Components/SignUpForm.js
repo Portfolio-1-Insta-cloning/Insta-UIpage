@@ -85,7 +85,7 @@ const SignUpForm = (props) => {
     return (
         <>
             <div className = "signup_header_div">
-                <img src = {logo} className = "signup_image_style"/>
+                <img src = {logo} alt = {logo} className = "signup_image_style"/>
                 <NavLink className = "signup_header" to = '/'>Home</NavLink>
             </div>
         <div className = "signup_wrapperdiv">
