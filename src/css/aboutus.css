@@ -1,7 +1,7 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
-}
+} */
 
 .aboutus_header_div {
     background-color: #12adf6;
@@ -27,4 +27,18 @@
     font-size: 2rem;
     font-family: Source Sans Pro, sans-serif;
     padding: 20px;
+}
+
+.aboutus_title {
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 20px;
+}
+
+.aboutus_content {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 2rem;
+    font-family: 'Open Sans', sans-serif;;
 }
