@@ -110,37 +110,3 @@ const Profile = (props) => {
 }
 
 export default Profile;
-
-
-
-// import React, { useState } from 'react';
-// import { NavLink} from 'react-router-dom';
-// import "../css/profile.css";
-
-// const Profile = (props) => {
-//     const { loginUser, handleLogout } = props
-
-//     // States to edit user details:
-//     const [editing, setEditing] = useState(false);
-
-    
-
-//     return (
-//         <div>
-//             <div className="profile_navlink_wrapper">
-//                 <NavLink to = "/" className = "profile_navlink_item">Home</NavLink>
-//                 <NavLink to = "/" onClick={handleLogout} className = "profile_navlink_item">Logout</NavLink>
-//             </div>
-//                 <p className = "profile_title"> User Profile</p>
-//             <div className = "profile_div">
-//                 <span className = "profile_field"><p className = "profile_feild_label">First Name:</p> <p className = "profile_feild_input">{ loginUser.firstname }</p></span>
-//                 <span className = "profile_field"><p className = "profile_feild_label">Last Name: </p> <p className = "profile_feild_input">{loginUser.lastname} </p></span>
-//                 <div className = "profile_button_wrapper">
-//                     <button className="profile_submitbutton" onClick={() => setEditing(true)}><NavLink to = "/update" > Edit</NavLink></button>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default Profile;

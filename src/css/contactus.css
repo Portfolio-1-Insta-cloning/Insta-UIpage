@@ -1,0 +1,39 @@
+.contactus_header_div {
+    background-color: #12adf6;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contactus_image_style {
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff;
+    padding-left: 20px; 
+}
+
+.contactus_header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: Source Sans Pro, sans-serif;
+    padding: 20px;
+}
+
+.contactus_title {
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 20px;
+}
+
+.contactus_content {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 2rem;
+    font-family: 'Open Sans', sans-serif;;
+}
