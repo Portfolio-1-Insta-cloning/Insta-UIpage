@@ -42,7 +42,7 @@ const LoginForm = (props) => {
     return (
         <>
         <div className = "login_header_div">
-            <img src = {logo} className = "login_image_style"/>
+            <img src = {logo} alt = {logo} className = "login_image_style"/>
             <NavLink className = "login_header" to = '/'>Home</NavLink>
         </div>
         <div className="login_Wrapper_div">

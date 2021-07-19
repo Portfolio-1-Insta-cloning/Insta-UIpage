@@ -8,6 +8,8 @@ import LoginForm from "./Components/LoginForm";
 import Home from "./Components/Home";
 import Profile from './Components/Profile';
 import Welcome from "./Components/Welcome";
+import Courses from "./Components/Courses";
+import CourseDetails from "./Components/CourseDetails";
 import AboutUs from "./Components/AboutUs";
 import ContactUs from "./Components/ContactUs";
 import { PrivateRoute } from "./Components/PrivateRoute";
@@ -90,7 +92,9 @@ const App = () => {
         </Route>  
         <Route path = '/contactus'> 
           <ContactUs/>
-          </Route>    
+        </Route>  
+        <Route path = "/courses"> <Courses/> </Route>  
+        <Route path = "/details"> <CourseDetails/> </Route>
         <PrivateRoute path='/welcome'>
           <Welcome
             loginUser={loginUser}

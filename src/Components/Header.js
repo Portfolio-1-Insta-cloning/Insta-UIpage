@@ -16,23 +16,10 @@ const Header = () => {
                 </div>
                 {/* <h1 className = "header_h1">Future Bots</h1> */}
                 <div className = "navLink_div">
-                    {/* <div className = "dropdown">
-                        <NavLink 
-                            className = "navLink_item" 
-                            to='/' 
-                            onMouseOver = {() => setDropDown(true)} 
-                            onMouseLeave = {() => setDropDown(false)}
-                            >
-                            Courses
-                            </NavLink>
-                            { dropdown && (<div className = "hearder_dropdown_content">
-                                <a href = "#"> Scratch </a>
-                                <a href = "#"> App Inventor </a>
-                                <a href = "#"> Python </a>
-                                <a href = "#"> TINKERCAD </a>
-                            </div>) }
-                    </div> */}
-                    <Nav>
+                    <div className = "dropdown">
+                        <NavLink className = "navLink_item" to='/courses'>Courses </NavLink>
+                    </div>
+                    {/* <Nav>
                         <NavDropdown eventKey={1} title="Courses" id="basic-nav-dropdown">
                             <LinkContainer to="/scratch">
                                 <Dropdown.Item eventKey={1.1}>Scratch</Dropdown.Item>    
@@ -47,7 +34,7 @@ const Header = () => {
                                 <Dropdown.Item eventKey={1.4}>TINKERCAD</Dropdown.Item>    
                             </LinkContainer>      
                         </NavDropdown>  
-                    </Nav>
+                    </Nav> */}
                     <NavLink className = "navLink_item" to = '/signup'>Sign Up</NavLink>
                     <NavLink className = "navLink_item" to='/login'>Log In</NavLink>
                     <NavLink className = "navLink_item" to='/aboutus'>About Us</NavLink>
