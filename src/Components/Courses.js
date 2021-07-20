@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
+import {useHistory, Route} from 'react-router-dom';
 import axios from 'axios';
+import CourseDetails from "../Components/CourseDetails";
 
-const Courses = () => {
+const Courses = (props) => {
 
-    const [course, setCourse] = useState([{
-        coursename: ""
-    }]);  
+    const {course, setCourse} = props;
+    const history = useHistory();
+    
     
     useEffect(() => {
         axios
@@ -24,7 +26,7 @@ const Courses = () => {
             <p>Courses</p>
             {course.map((item) => (
                 <div key = {item.id}>
-                    <h3>{item.course_name}</h3>
+                    <h3 onClick = {() => history.push(`${item.id}/details`)}>{item.course_name}</h3>
                 </div>
             ))}
         </div>

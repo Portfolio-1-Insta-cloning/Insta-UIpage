@@ -69,7 +69,10 @@ const App = () => {
     }
     setLoginUser(exsistingUser);
   }
-  // console.log("LOGIN USER =", loginUser);
+
+  const [course, setCourse] = useState([{
+    coursename: ""
+  }]);  
   
   return (
     <div className = "wrapperDiv">
@@ -93,8 +96,8 @@ const App = () => {
         <Route path = '/contactus'> 
           <ContactUs/>
         </Route>  
-        <Route path = "/courses"> <Courses/> </Route>  
-        <Route path = "/details"> <CourseDetails/> </Route>
+        <Route path = "/courses"> <Courses course = {course} setCourse = {setCourse}/> </Route>  
+        <Route path = "/:id/details"> <CourseDetails course = {course}/> </Route>
         <PrivateRoute path='/welcome'>
           <Welcome
             loginUser={loginUser}

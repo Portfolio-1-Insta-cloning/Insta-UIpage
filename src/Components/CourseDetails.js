@@ -1,7 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import {useParams} from 'react-router-dom';
 import axios from 'axios';
 
-const CourseDetails = () => {
+const CourseDetails = (props) => {
+
+    const {course} = props;
+    const {id} = useParams()
+    console.log("Course Details props", course);
 
     const [description, setDescription] = useState([{
         title: "",
@@ -10,7 +15,7 @@ const CourseDetails = () => {
 
     useEffect (() => {
         axios
-            .get(`http://localhost:5000/api/courses/3/details`)
+            .get(`http://localhost:5000/api/courses/${id}/details`)
             .then((res) => {
                 console.log("GET REQUEST", res.data);
                 setDescription(res.data);
