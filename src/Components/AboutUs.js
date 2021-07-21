@@ -7,7 +7,7 @@ const AboutUs = () => {
     return (
         <div>
             <div className = "aboutus_header_div">
-                <img src = {logo} className = "aboutus_image_style"/>
+                <img src = {logo} alt = {logo} className = "aboutus_image_style"/>
                 <NavLink className = "aboutus_header" to = '/'>Home</NavLink>
             </div>
             <h1 className = "aboutus_title">ABOUT US</h1>

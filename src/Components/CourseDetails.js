@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, NavLink} from 'react-router-dom';
 import axios from 'axios';
+import "../css/courseDetails.css";
+import logo from "../images/futurebot.png";
 
 const CourseDetails = (props) => {
 
@@ -27,13 +29,20 @@ const CourseDetails = (props) => {
 
     return (
         <div>
-            <p>Course Details</p>
+            <div className = "coursedetails_header_div">
+                <img src = {logo} alt = {logo} className = "coursedetails_image_style"/>
+                <NavLink to = "/" className = "coursedetails_header">Home</NavLink>
+            </div>
+            <h1 className = "coursedetails_title">{description[0].course_name}</h1>
             {description.map((item) => (
-                <div key = {item.id}>
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
+                // <div className = "cards_maindiv">
+                <div key = {item.id} className = "coursedetails_card">
+                    <h3 className = "card_title">{item.title}</h3>
+                    <p className = "card_description">{item.description}</p>
                 </div>
+                // </div>
             ))}
+            <button type="button">Enroll</button>
         </div>
     )
 }
