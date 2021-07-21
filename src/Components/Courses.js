@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react';
+import {useHistory, NavLink} from 'react-router-dom';
 import axios from 'axios';
+import "../css/courses.css";
+import logo from "../images/futurebot.png";
 
-const Courses = () => {
+const Courses = (props) => {
 
-    const [course, setCourse] = useState([{
-        coursename: ""
-    }]);  
+    const {course, setCourse} = props;
+    const history = useHistory();
+    
     
     useEffect(() => {
         axios
@@ -21,10 +24,16 @@ const Courses = () => {
 
     return (
         <div>
-            <p>Courses</p>
+            <div className = "course_header_div">
+                <img src = {logo} alt = {logo} className = "course_image_style"/>
+                <NavLink className = "course_header" to = "/">Home</NavLink>
+            </div>
+            <h1 className = "course_title">Courses</h1>
             {course.map((item) => (
-                <div key = {item.id}>
-                    <h3>{item.course_name}</h3>
+                <div className = "course_content_div" key = {item.id}>
+                    <button className = "course_content" 
+                            onClick = {() => history.push(`${item.id}/details`)}
+                    >{item.course_name}</button>
                 </div>
             ))}
         </div>
