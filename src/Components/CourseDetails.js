@@ -31,18 +31,23 @@ const CourseDetails = (props) => {
         <div>
             <div className = "coursedetails_header_div">
                 <img src = {logo} alt = {logo} className = "coursedetails_image_style"/>
-                <NavLink to = "/" className = "coursedetails_header">Home</NavLink>
+                <div className = "coursedetails_navlink_div">
+                    <NavLink to = "/courses" className = "coursedetails_header">Courses </NavLink>
+                    <NavLink to = "/" className = "coursedetails_header">Home</NavLink>
+                </div>
             </div>
             <h1 className = "coursedetails_title">{description[0].course_name}</h1>
+            <div className = "cards_maindiv">
             {description.map((item) => (
-                // <div className = "cards_maindiv">
-                <div key = {item.id} className = "coursedetails_card">
-                    <h3 className = "card_title">{item.title}</h3>
-                    <p className = "card_description">{item.description}</p>
-                </div>
-                // </div>
+                    <div key = {item.id} className = "coursedetails_card">
+                        <h3 className = "card_title">{item.title}</h3>
+                        <p className = "card_description">{item.description}</p>
+                    </div>
             ))}
-            <button type="button">Enroll</button>
+            </div>
+            <div className = "enroll_button_div">
+                <button type="button" className = "enroll_button">Enroll</button>
+            </div>
         </div>
     )
 }
